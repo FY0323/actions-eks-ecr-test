@@ -5,7 +5,7 @@ on:
       - master
 
 jobs:
-  image push:
+  build-push-image:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
