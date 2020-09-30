@@ -39,7 +39,7 @@ jobs:
       with: 
         image: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_ECR_REPO_NAME }}:dev_${{ github.sha }}
         exit-code: '1'
-        exit-level: WARN
+        exit-level: FATAL
     - name: image push
       run: |
         docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_ECR_REPO_NAME }}:dev_${{ github.sha }}
