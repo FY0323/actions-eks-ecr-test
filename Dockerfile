@@ -1,3 +1,3 @@
-FROM nginx:1.9.1
+FROM nginx:1.15.1
 
 COPY ./html /usr/share/nginx/html
