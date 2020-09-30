@@ -34,6 +34,12 @@ jobs:
         exit-code: '1'
         ignore-unfixed: true
         severity: 'CRITICAL,HIGH'
+    - name: Dockle
+      uses: hands-lab/dockle-action@v1
+      with: 
+        image: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_ECR_REPO_NAME }}:dev_${{ github.sha }}
+        exit-code: '1'
+        exit-level: WARN
     - name: image push
       run: |
         docker push ${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_ECR_REPO_NAME }}:dev_${{ github.sha }}
